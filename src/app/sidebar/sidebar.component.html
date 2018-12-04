@@ -1,0 +1,77 @@
+<nav id="sidebar" [ngClass]="{active:open}">
+  <div class="sidebar-header">
+    <h3>Real Estate</h3>
+  </div>
+
+  <ul class="list-unstyled components">
+    <li class="active">
+      <i>Activities</i>
+      <ul class="list-unstyled pl-2">
+        <li>
+          <a href="#">Properties</a>
+        </li>
+        <li>
+          <a href="#">Listing</a>
+        </li>
+        <li>
+          <a href="#">Requests</a>
+        </li>
+        <li>
+          <a href="#">Tasks</a>
+        </li>
+        <li>
+          <a href="#">Transactions</a>
+        </li>
+        <li>
+          <a href="#">Transactions By Others</a>
+        </li>
+
+      </ul>
+    </li>
+    <li>
+      <i>Contacts</i>
+      <ul class="list-unstyled pl-2">
+        <li>
+          <a href="#">Clients</a>
+        </li>
+        <li>
+          <a href="#">Brokers</a>
+        </li>
+        <li>
+          <a href="#">General Contacts</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <i>Tools</i>
+      <ul class="list-unstyled pl-2">
+        <li>
+          <a href="#">Property Type</a>
+        </li>
+        <li>
+          <a href="#">Province</a>
+        </li>
+        <li>
+          <a href="#">Cities</a>
+        </li>
+        <li>
+          <a href="#">Districts</a>
+        </li>
+        <li>
+          <a href="#">Listing Type</a>
+        </li>
+        <li>
+          <a href="#">Exchange Rate</a>
+        </li>
+        <li>
+          <a href="#">Users</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+
+  <a class="close-btn" (click)="open = !open">&times;</a>
+</nav>
+
+

@@ -1,0 +1,5 @@
+{
+  "/api.php": {
+    "target": "http://localhost"
+  }
+}
