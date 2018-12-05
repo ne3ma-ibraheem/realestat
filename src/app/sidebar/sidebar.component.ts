@@ -9,6 +9,23 @@ export class SidebarComponent implements OnInit {
 
   @Input() open: boolean;
 
+  tools = [
+    'Property Type',
+    'Province',
+    'Cities',
+    'Districts',
+    'Listing Type',
+    'Exchange Rate'
+  ];
+
+  contacts = [
+    'Clients',
+    'Panorama Agent',
+    'Panorama Broker',
+    'Other Agent',
+    'Other Broker',
+  ];
+
   constructor() {
   }
 

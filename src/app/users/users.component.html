@@ -1,0 +1,61 @@
+<div class="row">
+
+  <div class="offset-lg-1 offset-md-1 col-lg-10 col-md-10 col-sm-12">
+    <h3 class="text-center pb-5">Users Table</h3>
+
+    <table class="table">
+      <thead>
+      <tr>
+        <th>User Name</th>
+        <th>Password</th>
+        <th>Is Admin</th>
+        <th>Is Enabled</th>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <input type="text" class="form-control" [(ngModel)]="newOption.username">
+        </td>
+        <td>
+          <input type="password" class="form-control" [(ngModel)]="newOption.password">
+        </td>
+        <td>
+          <input type="checkbox"  [(ngModel)]="newOption.isAdmin">
+        </td>
+        <td>
+          <input type="checkbox"  [(ngModel)]="newOption.isEnabled">
+        </td>
+        <td>
+
+          <button class="btn btn-outline-success" (click)="addNew()" type="button">Add</button>
+
+
+        </td>
+      </tr>
+      <tr *ngFor="let value of options;let i=index;">
+        <td>
+          <input type="text" class="form-control" [(ngModel)]="value.username">
+        </td>
+        <td>
+          <input type="password" class="form-control" [(ngModel)]="value.password">
+        </td>
+        <td>
+          <input type="checkbox" [(ngModel)]="value.isAdmin">
+        </td>
+        <td>
+          <input type="checkbox" [(ngModel)]="value.isEnabled">
+        </td>
+        <td>
+          <div class="btn-group">
+            <button class="btn btn-outline-success" (click)="update(i)"  type="button">Save
+            </button>
+            <button class="btn btn-outline-danger" (click)="delete(i)" type="button">Delete</button>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

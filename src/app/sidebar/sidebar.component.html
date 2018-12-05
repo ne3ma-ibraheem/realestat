@@ -31,40 +31,21 @@
     <li>
       <i>Contacts</i>
       <ul class="list-unstyled pl-2">
-        <li>
-          <a href="#">Clients</a>
-        </li>
-        <li>
-          <a href="#">Brokers</a>
-        </li>
-        <li>
-          <a href="#">General Contacts</a>
-        </li>
+        <ul class="list-unstyled pl-2">
+          <li *ngFor="let t of contacts">
+            <a routerLink="contacts/{{t}}" (click)="open = false">{{t}}</a>
+          </li>
+        </ul>
       </ul>
     </li>
     <li>
       <i>Tools</i>
       <ul class="list-unstyled pl-2">
-        <li>
-          <a href="#">Property Type</a>
+        <li *ngFor="let t of tools">
+          <a routerLink="choices/{{t}}" (click)="open = false">{{t}}</a>
         </li>
-        <li>
-          <a href="#">Province</a>
-        </li>
-        <li>
-          <a href="#">Cities</a>
-        </li>
-        <li>
-          <a href="#">Districts</a>
-        </li>
-        <li>
-          <a href="#">Listing Type</a>
-        </li>
-        <li>
-          <a href="#">Exchange Rate</a>
-        </li>
-        <li>
-          <a href="#">Users</a>
+        <li >
+          <a routerLink="users" (click)="open = false">Users</a>
         </li>
       </ul>
     </li>

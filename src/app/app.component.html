@@ -1,8 +1,9 @@
+<button class="toggle-btn btn btn-success" (click)="navOpen=!navOpen">☰</button>
 <div class="wrapper">
   <app-sidebar [open]="navOpen"></app-sidebar>
 
-  <div class="content">
-    <button (click)="navOpen=!navOpen"></button>
+
+  <div class="container">
     <router-outlet></router-outlet>
   </div>
 </div>

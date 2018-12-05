@@ -8,18 +8,37 @@ import {Observable} from 'rxjs';
 })
 export class ApiService {
 
-  options: Option[];
+  options: Observable<Option[]>;
 
   constructor(private http: HttpClient) {
-    http.get<Records<Option>>(`/api.php/records/COMMON`).subscribe(
-      data => {
-        this.options = data.records;
-      }
-    );
+
   }
 
-  types(type): Option[] {
-    return this.options && this.options.filter(data => data.type === type);
+  types(type): Observable<Option[]> {
+    return this.http.get<Records<Option>>(`/api.php/records/common`)
+      .pipe(map(data => data.records.filter(option => option.type === type)));
+  }
+
+  contacts(type): Observable<Client[]> {
+    return this.http.get<Records<Client>>(`/api.php/records/client`)
+      .pipe(map(data => data.records.filter(option => option.clientType === type)));
+  }
+
+  users(): Observable<User[]> {
+    return this.http.get<Records<User>>(`/api.php/records/user`)
+      .pipe(map(data => data.records));
+  }
+
+  create<T>(tableName: string, value: T): Observable<number> {
+    return this.http.post<number>(`/api.php/records/${tableName}`, value);
+  }
+
+  update<T>(tableName: string, value: T): Observable<number> {
+    return this.http.put<number>(`/api.php/records/${tableName}/${value['id']}`, value);
+  }
+
+  delete<T>(tableName: string, id: number): Observable<number> {
+    return this.http.delete<number>(`/api.php/records/${tableName}/${id}`);
   }
 
   properties(): Observable<any> {
@@ -46,5 +65,22 @@ export class Option {
 
 export class Records<T> {
   records: T[];
+}
+
+export class Client {
+  id: number;
+  clientType: string;
+  mobile: string;
+  name: string;
+  note: string;
+  otherPhone: string;
+}
+
+export class User {
+  id: number;
+  username: string;
+  password: string;
+  isAdmin: boolean;
+  isEnabled: boolean;
 }
 
