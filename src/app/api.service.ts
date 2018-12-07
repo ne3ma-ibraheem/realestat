@@ -25,8 +25,7 @@ export class ApiService {
   }
 
   users(): Observable<User[]> {
-    return this.http.get<Records<User>>(`/api.php/records/user`)
-      .pipe(map(data => data.records));
+    return this.list('user');
   }
 
   create<T>(tableName: string, value: T): Observable<number> {
@@ -39,6 +38,16 @@ export class ApiService {
 
   delete<T>(tableName: string, id: number): Observable<number> {
     return this.http.delete<number>(`/api.php/records/${tableName}/${id}`);
+  }
+
+  list<T>(tableName: string, params = {}): Observable<T[]> {
+    return this.http.get<Records<T>>(`/api.php/records/${tableName}`,
+      {params: params}
+    ).pipe(map(data => data.records));
+  }
+
+  one<T>(tableName: string, id: number): Observable<T> {
+    return this.http.get<T>(`/api.php/records/${tableName}/${id}`);
   }
 
   properties(): Observable<any> {
@@ -84,3 +93,56 @@ export class User {
   isEnabled: boolean;
 }
 
+export interface Properties {
+  id?: number;
+  owner?: string;
+  propertyType?: number;
+  province?: number;
+  city?: number;
+  district?: number;
+  floor?: number;
+  masterBedrooms?: number;
+  bedrooms?: number;
+  bathrooms?: number;
+  maidroom?: number;
+  indoorFinishingLevel?: number;
+  direction?: number;
+  heating?: number;
+  cooling?: number;
+  outdoorFinishingLevel?: number;
+  parking?: number;
+  ownershipStatus?: number;
+  registrationDistrict?: string;
+  registrationNo?: string;
+  noteLocationInformation?: string;
+  address?: string;
+  noteInteriorfeatures?: string;
+  noteExteriorfeatures?: string;
+  additionalInformationNote?: string;
+  propertyInhouseInfo?: string;
+  yearBuilt?: string;
+  lat?: string;
+  lon?: string;
+  area?: string;
+  terrace?: string;
+  privateGarden?: string;
+  outdoorAreaFactor?: string;
+  equivalentArea?: string;
+  propertyConditionFactor?: string;
+  watchman?: boolean;
+  securityMan?: boolean;
+  securityCameras?: boolean;
+  intercom?: boolean;
+  centralDish?: boolean;
+  bldgGarden?: boolean;
+  playground?: boolean;
+  bldgMultipurpose?: boolean;
+  gym?: boolean;
+  swimmingPool?: boolean;
+  storageRoom?: boolean;
+  generator?: boolean;
+  photos?: string;
+  plans?: string;
+  walkin?: string;
+
+}

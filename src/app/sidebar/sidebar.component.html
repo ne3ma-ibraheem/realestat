@@ -44,10 +44,13 @@
         <li *ngFor="let t of tools">
           <a routerLink="choices/{{t}}" (click)="open = false">{{t}}</a>
         </li>
-        <li >
+        <li>
           <a routerLink="users" (click)="open = false">Users</a>
         </li>
       </ul>
+    </li>
+    <li>
+      <a class = "logout" routerLink="" (click)="loginService.logout();open=!open">Logout</a>
     </li>
 
   </ul>

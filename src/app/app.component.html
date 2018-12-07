@@ -1,8 +1,6 @@
-<button class="toggle-btn btn btn-success" (click)="navOpen=!navOpen">☰</button>
+<button *ngIf="btnVisible" class="toggle-btn btn" (click)="sidebar.toggle()">☰</button>
 <div class="wrapper">
-  <app-sidebar [open]="navOpen"></app-sidebar>
-
-
+  <app-sidebar></app-sidebar>
   <div class="container">
     <router-outlet></router-outlet>
   </div>

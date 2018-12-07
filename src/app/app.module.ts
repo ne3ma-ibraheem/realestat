@@ -11,6 +11,7 @@ import { ChoicesComponent } from './common/choices/choices.component';
 import {FormsModule} from '@angular/forms';
 import { ContactsComponent } from './contacts/contacts.component';
 import { UsersComponent } from './users/users.component';
+import { LoginComponent } from './pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UsersComponent } from './users/users.component';
     SidebarComponent,
     ChoicesComponent,
     ContactsComponent,
-    UsersComponent
+    UsersComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

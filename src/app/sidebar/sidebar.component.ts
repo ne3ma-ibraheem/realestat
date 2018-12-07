@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {LoginService} from '../login.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +8,7 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  @Input() open: boolean;
+  open = false;
 
   tools = [
     'Property Type',
@@ -26,10 +27,14 @@ export class SidebarComponent implements OnInit {
     'Other Broker',
   ];
 
-  constructor() {
+  constructor(private loginService: LoginService) {
   }
 
   ngOnInit() {
+  }
+
+  toggle() {
+    this.open = !this.open;
   }
 
 }
