@@ -93,8 +93,9 @@ export class User {
   isEnabled: boolean;
 }
 
-export interface Properties {
+export class Property {
   id?: number;
+  entryDate: string;
   owner?: string;
   propertyType?: number;
   province?: number;
@@ -104,6 +105,7 @@ export interface Properties {
   masterBedrooms?: number;
   bedrooms?: number;
   bathrooms?: number;
+  guestBathrooms?: number;
   maidroom?: number;
   indoorFinishingLevel?: number;
   direction?: number;
@@ -129,6 +131,9 @@ export interface Properties {
   outdoorAreaFactor?: string;
   equivalentArea?: string;
   propertyConditionFactor?: string;
+  furniture?: boolean;
+  electricalAppliances?: boolean;
+  lifts?: boolean;
   watchman?: boolean;
   securityMan?: boolean;
   securityCameras?: boolean;

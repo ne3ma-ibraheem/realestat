@@ -8,7 +8,7 @@
       <i>Activities</i>
       <ul class="list-unstyled pl-2">
         <li>
-          <a href="#">Properties</a>
+          <a routerLink="Properties/New" (click)="open=false">Properties</a>
         </li>
         <li>
           <a href="#">Listing</a>
@@ -47,10 +47,14 @@
         <li>
           <a routerLink="users" (click)="open = false">Users</a>
         </li>
+        <li>
+          <a routerLink="others/choices" (click)="open = false">Other Tables</a>
+        </li>
+
       </ul>
     </li>
     <li>
-      <a class = "logout" routerLink="" (click)="loginService.logout();open=!open">Logout</a>
+      <button class="logout"  (click)="logout();open=false">Logout</button>
     </li>
 
   </ul>

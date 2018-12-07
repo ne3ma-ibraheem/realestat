@@ -1,0 +1,11 @@
+<div class="btn-group" style="width:100%!important;">
+  <button class="btn col-md-2 mb-4" *ngFor="let type of otherTypes" (click)="setType(type)"
+          [ngClass]="{'btn-primary':selectedType===type,'btn-outline-primary':selectedType !==type}">
+    {{type}}
+  </button>
+</div>
+
+
+<app-choices></app-choices>
+
+

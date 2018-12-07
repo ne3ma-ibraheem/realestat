@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {LoginService} from '../login.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -27,7 +28,7 @@ export class SidebarComponent implements OnInit {
     'Other Broker',
   ];
 
-  constructor(private loginService: LoginService) {
+  constructor(private loginService: LoginService, private router: Router) {
   }
 
   ngOnInit() {
@@ -35,6 +36,12 @@ export class SidebarComponent implements OnInit {
 
   toggle() {
     this.open = !this.open;
+  }
+
+  logout() {
+    this.open = false;
+    this.loginService.logout();
+    this.router.navigate(['']);
   }
 
 }

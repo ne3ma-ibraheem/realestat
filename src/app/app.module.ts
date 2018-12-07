@@ -12,6 +12,8 @@ import {FormsModule} from '@angular/forms';
 import { ContactsComponent } from './contacts/contacts.component';
 import { UsersComponent } from './users/users.component';
 import { LoginComponent } from './pages/login/login.component';
+import { PropertyEditorComponent } from './properties/property-editor/property-editor.component';
+import { OthersComponent } from './common/others/others.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { LoginComponent } from './pages/login/login.component';
     ChoicesComponent,
     ContactsComponent,
     UsersComponent,
-    LoginComponent
+    LoginComponent,
+    PropertyEditorComponent,
+    OthersComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,197 @@
+<div class="container-fluid mb-5">
+  <h3 class="text-center">Add New Property</h3>
+
+  <div class="row section">
+    <h5 class="col-md-12">Property Identification:</h5>
+    <div class="col-md-2"> ID: {{property?.id}}</div>
+    <label class="col-md-5">
+      Entry Date:
+      <input [(ngModel)]="property.entryDate" class="form-control" type="date">
+
+    </label>
+    <label class="col-md-5">
+      Property Type:
+      <select [(ngModel)]="property.propertyType" class="form-control">
+        <option *ngFor="let t of types['Property Type']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+
+  </div>
+  <div class="row section">
+    <h5 class="col-md-12">Location Information:</h5>
+    <label class="col-md-4">
+      Province:
+      <select [(ngModel)]="property.province" class="form-control">
+        <option *ngFor="let t of types['Province']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-4">
+      City:
+      <select [(ngModel)]="property.city" class="form-control">
+        <option *ngFor="let t of types['Cities']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-4">
+      District:
+      <select [(ngModel)]="property.district" class="form-control">
+        <option *ngFor="let t of types['Districts']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+
+    <label class="col-md-4">
+      Registration District:
+      <select [(ngModel)]="property.registrationDistrict" class="form-control">
+        <option *ngFor="let t of types['Districts']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+
+    <label class="col-md-4">
+      Registration No:
+      <input [(ngModel)]="property.registrationDistrict" class="form-control" type="text">
+    </label>
+
+    <label class="col-md-4">
+      Address:
+      <input [(ngModel)]="property.address" class="form-control" type="text">
+    </label>
+    <label class="col-md-4">
+      Lat:
+      <input [(ngModel)]="property.lat" class="form-control" type="number">
+    </label>
+    <label class="col-md-4">
+      Lon:
+      <input [(ngModel)]="property.lon" class="form-control" type="number">
+    </label>
+
+
+  </div>
+  <div class="row section">
+    <h5 class="col-md-12">Interior Features:</h5>
+    <label class="col-md-3">
+      Area:
+      <input [(ngModel)]="property.area" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Floor:
+      <input [(ngModel)]="property.floor" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Master Bedrooms:
+      <input [(ngModel)]="property.masterBedrooms" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Bedrooms:
+      <input [(ngModel)]="property.bedrooms" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Bathrooms:
+      <input [(ngModel)]="property.bathrooms" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Guest Bathrooms:
+      <input [(ngModel)]="property.guestBathrooms" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Maidroom:
+      <input [(ngModel)]="property.maidroom" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Indoor Finishing Level:
+      <select [(ngModel)]="property.indoorFinishingLevel" class="form-control">
+        <option *ngFor="let t of types['Indoor Finishing Level']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-3">
+      Direction:
+      <select [(ngModel)]="property.direction" class="form-control">
+        <option *ngFor="let t of types['Direction']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-3">
+      Heating:
+      <select [(ngModel)]="property.heating" class="form-control">
+        <option *ngFor="let t of types['Heating']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-3">
+      Cooling:
+      <select [(ngModel)]="property.cooling" class="form-control">
+        <option *ngFor="let t of types['Cooling']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-3">
+      Note Interior features:
+      <input [(ngModel)]="property.noteInteriorfeatures" class="form-control" type="number">
+    </label>
+
+    <div class="btn-group col-md-12" style="width:100%" role="group" aria-label="Basic example">
+      <button type="button" class="btn col-md-4" *ngFor="let feature of interiorFeatures"
+              [ngClass]="{'btn-success':!!property[feature.name],'btn-outline-secondary':!property[feature.name]}"
+              (click)="property[feature.name]=!property[feature.name]">{{feature.label}}</button>
+    </div>
+  </div>
+
+  <div class="row section">
+    <h5 class="col-md-12">Exterior Features:</h5>
+    <label class="col-md-3">
+      Terrace:
+      <input [(ngModel)]="property.terrace" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Private Garden:
+      <input [(ngModel)]="property.privateGarden" class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Outdoor Finishing Level:
+      <select [(ngModel)]="property.outdoorFinishingLevel" class="form-control">
+        <option *ngFor="let t of types['Outdoor Finishing Level']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-3">
+      Parking:
+      <input [(ngModel)]="property.parking" class="form-control" type="number">
+    </label>
+
+    <label class="col-md-3">
+      Drivers Room:
+      <input class="form-control" type="number">
+    </label>
+    <label class="col-md-3">
+      Note Exterior features:
+      <input [(ngModel)]="property.noteExteriorfeatures" class="form-control" type="number">
+    </label>
+
+    <div class="btn-group col-md-12" role="group" aria-label="Basic example">
+      <button type="button" class="btn col-md-4" *ngFor="let feature of exteriorFeatures1"
+              (click)="property[feature.name]=!property[feature.name]"
+              [ngClass]="{'btn-success':!!property[feature.name],'btn-outline-secondary':!property[feature.name]}">{{feature.label}}</button>
+    </div>
+    <div class="btn-group col-md-12 mt-2" role="group" aria-label="Basic example">
+      <button type="button" class="btn col-md-4" *ngFor="let feature of exteriorFeatures2"
+              [ngClass]="{'btn-success':!!property[feature.name],'btn-outline-secondary':!property[feature.name]}"
+              (click)="property[feature.name]=!property[feature.name]">{{feature.label}}</button>
+    </div>
+
+  </div>
+
+  <div class="row section">
+    <h5 class="col-md-12">Additional Info:</h5>
+    <label class="col-md-4">
+      Ownership Status:
+      <select [(ngModel)]="property.ownershipStatus" class="form-control">
+        <option *ngFor="let t of types['Ownership Status']" [value]="t.id">{{t.p_value}}</option>
+      </select>
+    </label>
+    <label class="col-md-4">
+      Year Build:
+      <input [(ngModel)]="property.yearBuilt" class="form-control" type="text">
+    </label>
+    <label class="col-md-4">
+      Additional Info Note:
+      <input [(ngModel)]="property.additionalInformationNote" class="form-control" type="number">
+    </label>
+
+  </div>
+
+
+</div>

@@ -52,7 +52,7 @@ export class LoginService {
   }
 
   getUser() {
-    if (this.currentUser) {
+    if (this.currentUser || !this.call) {
       return of(this.currentUser);
     } else {
       return this.call;

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ApiService, Option} from '../../api.service';
 import {ActivatedRoute} from '@angular/router';
 
@@ -9,18 +9,13 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class ChoicesComponent implements OnInit {
 
-  type: string;
+  @Input() type: string;
   options: Option[] = [];
-
   newOption: Option = new Option();
 
   constructor(private api: ApiService, private activeRoute: ActivatedRoute) {
     activeRoute.params.subscribe(params => {
-        this.type = params['type'];
-        this.newOption.type = this.type;
-        this.api.types(this.type).subscribe(opt => {
-          this.options = opt;
-        });
+        this.setType(params['type']);
       }
     );
   }
@@ -28,8 +23,15 @@ export class ChoicesComponent implements OnInit {
   ngOnInit() {
   }
 
-  addNew() {
+  setType(type: string) {
+    this.type = type;
+    this.newOption.type = this.type;
+    this.api.types(this.type).subscribe(opt => {
+      this.options = opt;
+    });
+  }
 
+  addNew() {
     this.api.create('common', this.newOption).subscribe(x => {
       this.newOption.id = x;
       this.options.push(this.newOption);
