@@ -15,7 +15,7 @@ export class UsersComponent implements OnInit {
   newOption: User = new User();
 
   constructor(private api: ApiService) {
-    this.api.users().subscribe(opt => {
+    this.api.list<User>('user').subscribe(opt => {
       this.options = opt;
     });
 

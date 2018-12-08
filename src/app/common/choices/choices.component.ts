@@ -26,7 +26,9 @@ export class ChoicesComponent implements OnInit {
   setType(type: string) {
     this.type = type;
     this.newOption.type = this.type;
-    this.api.types(this.type).subscribe(opt => {
+    this.api.list<Option>('common', {
+      filter: `type,eq,${type}`
+    }).subscribe(opt => {
       this.options = opt;
     });
   }

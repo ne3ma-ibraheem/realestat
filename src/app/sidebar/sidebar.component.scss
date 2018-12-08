@@ -2,88 +2,100 @@
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 6; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #0074d9; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
 
-#sidebar .close-btn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-}
+  .close-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
 
-@media screen  and (max-width: 500px){
-  #sidebar.active {
-    width: 70%!important;
+    &:hover {
+      cursor: pointer;
+    }
   }
+
+  &.active {
+    width: 20%;
+  }
+
+  a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 14px;
+    color: #ffffff;
+    display: block;
+    transition: 0.3s;
+
+    &:hover {
+      color: #f1f1f1;
+    }
+
+    &.logout {
+      padding: 8px 8px 8px 32px;
+      text-decoration: underline;
+      font-size: 14px;
+      color: #ffffff;
+      display: block;
+      transition: 0.3s;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+  }
+
+  .sidebar-header {
+    font-size: 25px;
+    color: white;
+    padding-left: 10px;
+  }
+
+  i {
+    color: #ffffff;
+    padding-left: 10px;
+    text-decoration: underline;
+  }
+
+  &:hover::-webkit-scrollbar{
+    width: 8px;
+  }
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  /* Track */
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 0;
+    border-radius: 0;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: gray;
+    -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.5);
+  }
+
+  &::-webkit-scrollbar-thumb:window-inactive {
+    background: gray;
+  }
+
+
 }
 
-
-#sidebar.active {
-  width: 20%;
-}
-
-
-#sidebar a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 14px;
-  color: #ffffff;
-  display: block;
-  transition: 0.3s;
-}
-
-#sidebar a.logout {
-  padding: 8px 8px 8px 32px;
-  text-decoration: underline;
-  font-size: 14px;
-  color: #ffffff;
-  display: block;
-  transition: 0.3s;
-}
-
-#sidebar .sidebar-header {
-  font-size: 25px;
-  color: white;
-  padding-left: 10px;
-}
-
-
-#sidebar a:hover {
-  color: #f1f1f1;
-}
-
-#sidebar i {
-  color: #ffffff;
-  padding-left: 10px;
-
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.3);
-  -webkit-border-radius: 0;
-  border-radius: 0;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  -webkit-border-radius: 10px;
-  border-radius: 10px;
-  background: gray;
-  -webkit-box-shadow: inset 0 0 3px rgba(0,0,0,0.5);
-}
-::-webkit-scrollbar-thumb:window-inactive {
-  background: gray;
+@media screen and (max-width: 500px) {
+  #sidebar.active {
+    width: 70% !important;
+  }
 }

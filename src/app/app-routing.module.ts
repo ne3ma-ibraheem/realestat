@@ -6,7 +6,6 @@ import {UsersComponent} from './users/users.component';
 import {LoginComponent} from './pages/login/login.component';
 import {AuthGuard} from './pages/auth.guard';
 import {PropertyEditorComponent} from './properties/property-editor/property-editor.component';
-import {AuthAdminGuard} from './pages/auth-admin.guard';
 import {OthersComponent} from './common/others/others.component';
 
 const routes: Routes = [

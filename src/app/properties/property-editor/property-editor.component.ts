@@ -10,16 +10,10 @@ export class PropertyEditorComponent implements OnInit {
 
   @Input() property: Property;
 
-  propertyTypes: Option[];
-
-  provinceList: Option[];
-  citiesList: Option[];
-  districtList: Option[];
-
   interiorFeatures = [
-    {name: 'furniture', label: 'Furniture'},
-    {name: 'electricalAppliances', label: 'Electrical Appliances'},
-    {name: 'lifts', label: 'Lifts'},
+    {name: 'Furniture', label: 'Furniture'},
+    {name: 'ElectricalAppliances', label: 'Electrical Appliances'},
+    {name: 'Lifts', label: 'Lifts'},
   ];
 
   exteriorFeatures1 = [
@@ -32,7 +26,7 @@ export class PropertyEditorComponent implements OnInit {
   ];
   exteriorFeatures2 = [
     {name: 'Playground', label: 'Playground'},
-    {name: 'BldgMultipurpose Hall', label: 'Bldg Multipurpose Hall'},
+    {name: 'BldgMultipurposeHall', label: 'Bldg Multipurpose Hall'},
     {name: 'Gym', label: 'Gym'},
     {name: 'SwimmingPool', label: 'Swimming Pool'},
     {name: 'StorageRoom', label: 'Storage Room'},

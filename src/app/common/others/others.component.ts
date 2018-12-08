@@ -1,5 +1,4 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
-import {SidebarComponent} from '../../sidebar/sidebar.component';
 import {ChoicesComponent} from '../choices/choices.component';
 
 @Component({

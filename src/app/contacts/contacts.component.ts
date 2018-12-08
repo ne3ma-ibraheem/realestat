@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ApiService, Client, Option} from '../api.service';
+import {ApiService, Client} from '../api.service';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -17,7 +17,9 @@ export class ContactsComponent implements OnInit {
     activeRoute.params.subscribe(params => {
         this.type = params['type'];
         this.newOption.clientType = this.type;
-        this.api.contacts(this.type).subscribe(opt => {
+        this.api.list<Client>('client', {
+          filter: `clientType,eq,${this.type}`
+        }).subscribe(opt => {
           this.options = opt;
         });
       }
